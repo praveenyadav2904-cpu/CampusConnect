@@ -1,0 +1,513 @@
+
+/* ========================================
+   CAMPUS GUIDE - MAIN PAGE
+======================================== */
+
+.campus-guide-page {
+  min-height: 100%;
+  padding: 24px;
+  color: #eef5fc;
+  background: #0b1220;
+}
+
+.campus-guide-page * {
+  box-sizing: border-box;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+.campus-guide-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.campus-guide-eyebrow {
+  color: #43d6bd;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.campus-guide-header h1 {
+  margin: 9px 0 7px;
+  font-size: clamp(28px, 3vw, 36px);
+  letter-spacing: -1px;
+}
+
+.campus-guide-header p {
+  margin: 0;
+  color: #91a4bb;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.campus-guide-badge {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 14px;
+  border: 1px solid #26374b;
+  border-radius: 11px;
+  color: #c6d5e5;
+  background: #111c2d;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.campus-guide-badge span {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #43d6bd;
+}
+
+/* ========================================
+   SEARCH
+======================================== */
+
+.campus-guide-search {
+  margin-bottom: 18px;
+  padding: 17px;
+  border: 1px solid #253448;
+  border-radius: 14px;
+  background: #111c2d;
+}
+
+.campus-guide-search label {
+  display: block;
+  margin-bottom: 9px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.campus-guide-search input {
+  display: block;
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 14px;
+  border: 1px solid #2a3b50;
+  border-radius: 10px;
+  outline: none;
+  background: #0b1422;
+  color: #eef5fc;
+  font-size: 13px;
+}
+
+.campus-guide-search input:focus {
+  border-color: #43d6bd;
+  box-shadow: 0 0 0 3px rgba(67, 214, 189, 0.08);
+}
+
+.campus-guide-search input::placeholder {
+  color: #71859d;
+}
+
+.campus-guide-search p {
+  margin: 9px 0 0;
+  color: #91a4bb;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* ========================================
+   MAIN LOCATION LAYOUT
+======================================== */
+
+.campus-guide-layout {
+  display: grid;
+  grid-template-columns: minmax(270px, 0.9fr) minmax(0, 1.1fr);
+  gap: 17px;
+  align-items: stretch;
+}
+
+.campus-location-list-panel,
+.campus-location-details-panel {
+  min-width: 0;
+  border: 1px solid #253448;
+  border-radius: 15px;
+  background: #111c2d;
+}
+
+.campus-location-list-panel {
+  min-height: 390px;
+  overflow: hidden;
+}
+
+.campus-location-list-heading {
+  padding: 18px;
+  border-bottom: 1px solid #253448;
+}
+
+.campus-location-list-heading h2 {
+  margin: 0 0 6px;
+  font-size: 17px;
+}
+
+.campus-location-list-heading p {
+  margin: 0;
+  color: #91a4bb;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.campus-location-list {
+  max-height: 530px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #344b64 #111c2d;
+}
+
+.campus-location-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 14px;
+  border: 0;
+  border-bottom: 1px solid rgba(145, 164, 187, 0.1);
+  background: transparent;
+  color: #eef5fc;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.campus-location-card:hover,
+.campus-location-card.selected {
+  background: rgba(67, 214, 189, 0.08);
+}
+
+.campus-location-card.selected {
+  box-shadow: inset 3px 0 #43d6bd;
+}
+
+.campus-location-card:focus-visible,
+.campus-guide-error button:focus-visible {
+  outline: 2px solid #43d6bd;
+  outline-offset: -2px;
+}
+
+.campus-location-icon,
+.campus-location-details-icon {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  border: 1px solid #293c51;
+  border-radius: 12px;
+  background: #0b1726;
+  color: #43d6bd;
+}
+
+.campus-location-icon {
+  width: 43px;
+  height: 43px;
+  font-size: 24px;
+}
+
+.campus-location-card-copy {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.campus-location-card-copy strong {
+  overflow-wrap: anywhere;
+  font-size: 12px;
+}
+
+.campus-location-card-copy span,
+.campus-location-card-copy small {
+  color: #91a4bb;
+  font-size: 11px;
+}
+
+.campus-location-arrow {
+  flex-shrink: 0;
+  color: #91a4bb;
+  font-size: 23px;
+}
+
+/* ========================================
+   LOCATION DETAILS
+======================================== */
+
+.campus-location-details-panel {
+  min-height: 390px;
+  padding: 24px;
+  overflow-wrap: anywhere;
+}
+
+.campus-location-details-icon {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+.campus-location-details-panel h2 {
+  margin: 10px 0;
+  font-size: 23px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.campus-location-type {
+  display: inline-block;
+  margin-bottom: 17px;
+  color: #43d6bd;
+  font-size: 12px;
+}
+
+.campus-location-details-panel p,
+.campus-location-details-panel li {
+  color: #b9c8d9;
+  font-size: 13px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.campus-location-details-panel p strong,
+.campus-location-details-panel > div > strong {
+  color: #eef5fc;
+}
+
+.campus-location-details-panel ul {
+  padding-left: 20px;
+}
+
+.campus-guide-coordinate-note {
+  margin-top: 20px;
+  padding: 12px;
+  border: 1px solid rgba(239, 185, 92, 0.2);
+  border-radius: 10px;
+  background: rgba(239, 185, 92, 0.05);
+  color: #d8c49d;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* ========================================
+   LOADING AND EMPTY STATES
+======================================== */
+
+.campus-guide-empty-details,
+.campus-guide-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 280px;
+  padding: 24px;
+  color: #91a4bb;
+  text-align: center;
+}
+
+.campus-guide-empty-details > span {
+  color: #43d6bd;
+  font-size: 38px;
+}
+
+.campus-guide-empty-details h2 {
+  margin: 0;
+  color: #eef5fc;
+  font-size: 18px;
+}
+
+.campus-guide-empty-details p {
+  margin: 0;
+  font-size: 12px;
+}
+
+/* ========================================
+   ERROR MESSAGE
+======================================== */
+
+.campus-guide-error {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 16px;
+  padding: 14px;
+  border: 1px solid rgba(255, 120, 120, 0.3);
+  border-radius: 10px;
+  background: rgba(255, 120, 120, 0.06);
+}
+
+.campus-guide-error p {
+  margin: 0;
+  color: #ffb4b4;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.campus-guide-error button {
+  flex-shrink: 0;
+  padding: 8px 12px;
+  border: 1px solid #70404a;
+  border-radius: 8px;
+  background: transparent;
+  color: #ffb4b4;
+  cursor: pointer;
+}
+
+/* ========================================
+   CAMPUS MAP - BELOW MAIN CONTENT
+======================================== */
+
+.campus-map-section {
+  width: 100%;
+  max-width: 1100px;
+  margin: 24px auto 0;
+}
+
+.campus-map-heading {
+  margin-bottom: 10px;
+}
+
+.campus-map-heading h2 {
+  margin: 0 0 5px;
+  color: #f1f5f9;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.campus-map-heading p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* Keep the entire map visible without an inner scrollbar */
+.campus-map-frame {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid #243b55;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.campus-map-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.campus-guide-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 24px;
+  color: #91a4bb;
+  font-size: 11px;
+}
+
+.campus-guide-footer span {
+  color: #43d6bd;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1000px) {
+  .campus-guide-page {
+    padding: 20px;
+  }
+
+  .campus-guide-layout {
+    grid-template-columns: minmax(240px, 0.85fr) minmax(0, 1.15fr);
+  }
+
+  .campus-map-section {
+    max-width: 100%;
+  }
+
+  .campus-location-details-panel {
+    padding: 20px;
+  }
+}
+
+/* ========================================
+   SMALL TABLET AND MOBILE
+======================================== */
+
+@media (max-width: 800px) {
+  .campus-guide-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .campus-location-list {
+    max-height: 360px;
+  }
+
+  .campus-location-details-panel {
+    min-height: 260px;
+  }
+
+  .campus-map-section {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .campus-guide-page {
+    padding: 14px;
+  }
+
+  .campus-guide-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .campus-guide-header h1 {
+    font-size: 28px;
+  }
+
+  .campus-guide-badge {
+    white-space: normal;
+  }
+
+  .campus-guide-search {
+    padding: 14px;
+  }
+
+  .campus-location-details-panel {
+    padding: 18px;
+  }
+
+  .campus-map-heading h2 {
+    font-size: 18px;
+  }
+
+  .campus-map-frame {
+    border-radius: 10px;
+  }
+
+  .campus-guide-error {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .campus-guide-footer {
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,209 @@
+
+.role-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px;
+  color: #17253d;
+}
+
+.role-dashboard-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.role-dashboard-eyebrow {
+  color: #168c91;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.role-dashboard-top h1 {
+  margin: 10px 0;
+  font-size: clamp(28px, 4vw, 38px);
+}
+
+.role-dashboard-top p {
+  color: #718096;
+  margin: 0;
+}
+
+.role-dashboard-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid #e3e9f0;
+  border-radius: 12px;
+}
+
+.role-avatar {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #e3f5f2;
+  color: #147d83;
+  font-weight: 800;
+}
+
+.role-dashboard-user div {
+  display: grid;
+  gap: 4px;
+}
+
+.role-dashboard-user div strong {
+  font-size: 13px;
+}
+
+.role-dashboard-user div span {
+  color: #7a8798;
+  font-size: 12px;
+}
+
+.role-dashboard-user button {
+  margin-left: 8px;
+  padding: 8px 10px;
+  border: 1px solid #dce4ed;
+  border-radius: 7px;
+  background: #fff;
+  color: #34445b;
+  cursor: pointer;
+}
+
+.role-dashboard-welcome {
+  margin: 32px 0;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-radius: 18px;
+  background: linear-gradient(120deg, #12344b, #147d83);
+  color: white;
+}
+
+.role-dashboard-welcome > div > span {
+  color: #9ce8df;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.role-dashboard-welcome h2 {
+  margin: 12px 0 8px;
+  font-size: clamp(22px, 3vw, 30px);
+}
+
+.role-dashboard-welcome p {
+  margin: 0;
+  color: #d3e6eb;
+  font-size: 14px;
+}
+
+.role-welcome-icon {
+  font-size: 52px;
+}
+
+.role-dashboard-section-title {
+  margin: 0 0 18px;
+  font-size: 21px;
+}
+
+.role-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.role-service-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 190px;
+  padding: 22px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #fff;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.role-service-card:hover {
+  transform: translateY(-3px);
+  border-color: #87c9c6;
+  box-shadow: 0 10px 25px rgb(23 37 61 / 7%);
+}
+
+.role-service-icon {
+  display: grid;
+  place-items: center;
+  width: 45px;
+  height: 45px;
+  margin-bottom: 17px;
+  border-radius: 12px;
+  background: #eaf8f6;
+  font-size: 23px;
+}
+
+.role-service-card > strong {
+  margin-bottom: 8px;
+  color: #203149;
+  font-size: 16px;
+}
+
+.role-service-description {
+  color: #77859a;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.role-service-link {
+  margin-top: auto;
+  padding-top: 18px;
+  color: #147d83;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.role-dashboard-demo-note {
+  margin-top: 25px;
+  color: #7c8999;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .role-dashboard-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .role-dashboard {
+    padding: 20px 15px;
+  }
+
+  .role-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .role-dashboard-welcome {
+    padding: 22px;
+  }
+
+  .role-welcome-icon {
+    font-size: 36px;
+  }
+
+  .role-dashboard-user {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}

@@ -1,0 +1,814 @@
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.landing-page {
+  --mint: #39e0bc;
+  --navy: #071725;
+  --white: #f4f8ff;
+
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--white);
+  background:
+    radial-gradient(ellipse at 72% 46%, #124858 0%, transparent 42%),
+    radial-gradient(ellipse at 25% 10%, #102b40 0%, transparent 45%),
+    linear-gradient(135deg, #07131f, #0c2638 60%, #071522);
+  font-family: Inter, Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.landing-page *,
+.landing-page *::before,
+.landing-page *::after {
+  box-sizing: border-box;
+}
+
+.landing-nav {
+  width: 100%;
+  min-height: 84px;
+  padding: 16px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid #ffffff12;
+}
+
+.landing-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.landing-brand-mark {
+  width: 45px;
+  height: 45px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  color: #06231f;
+  background: #13b99a;
+  font-size: 23px;
+  font-weight: 900;
+}
+
+.landing-login-btn,
+.landing-primary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 12px;
+  font: inherit;
+  font-weight: 750;
+  cursor: pointer;
+  transition: transform .2s, background .2s;
+}
+
+.landing-login-btn {
+  padding: 14px 20px;
+  border: 1px solid #ffffff28;
+  color: white;
+  background: #ffffff12;
+}
+
+.landing-login-btn:hover {
+  background: #ffffff20;
+  transform: translateY(-2px);
+}
+
+.landing-hero {
+  flex: 1;
+  width: 100%;
+  min-height: calc(100vh - 149px);
+  padding: 40px 7%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 30px;
+}
+
+.landing-copy {
+  position: relative;
+  z-index: 5;
+  min-width: 0;
+}
+
+.landing-eyebrow {
+  color: #56e6c7;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.landing-copy h1 {
+  margin: 23px 0 20px;
+  color: var(--white);
+  font-size: clamp(42px, 5vw, 72px);
+  line-height: 1.12;
+  letter-spacing: -2.5px;
+  overflow-wrap: anywhere;
+}
+
+.landing-heading-static {
+  display: block;
+  color: #f4f8ff;
+}
+
+.landing-typed {
+  display: block;
+  min-height: 1.15em;
+  color: #46e1bf;
+  overflow-wrap: anywhere;
+}
+
+.landing-cursor {
+  margin-left: 3px;
+  color: #46e1bf;
+  font-style: normal;
+  animation: cursorBlink .8s steps(2, start) infinite;
+}
+
+.landing-copy p {
+  max-width: 490px;
+  margin: 0;
+  color: #b5c6d5;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.landing-primary-btn {
+  margin-top: 25px;
+  padding: 17px 25px;
+  border: 0;
+  color: #05251f;
+  background: #39e0bc;
+  box-shadow: 0 10px 35px #13b99a30;
+}
+
+.landing-primary-btn:hover {
+  background: #58ebcc;
+  transform: translateY(-3px);
+}
+
+/* Illustration scene */
+.landing-scene {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: 600px;
+  height: 500px;
+  min-width: 0;
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scene-glow {
+  position: absolute;
+  z-index: -2;
+  width: 80%;
+  height: 45%;
+  bottom: 8%;
+  border-radius: 50%;
+  background: #20d8c033;
+  filter: blur(45px);
+}
+
+.scene-orbit {
+  position: absolute;
+  z-index: -1;
+  width: 78%;
+  height: 72%;
+  border: 1px solid #8be9db20;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.orbit-one {
+  transform: rotate(-25deg);
+}
+
+.orbit-two {
+  width: 90%;
+  height: 57%;
+  transform: rotate(25deg);
+}
+
+.students {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 390px;
+  perspective: 1000px;
+}
+
+/* Complete CSS-built characters */
+.character {
+  --skin: #c98761;
+  --hair: #211923;
+  --shirt: #147b8c;
+  --pants: #202d3e;
+
+  position: relative;
+  width: 175px;
+  height: 365px;
+  flex: 0 1 175px;
+  transform-origin: 50% 90%;
+  animation: characterFloat 4s ease-in-out infinite;
+  filter: drop-shadow(0 15px 14px #0004);
+}
+
+.character.girl {
+  --skin: #e6ad86;
+  --hair: #35232a;
+  --shirt: #dce7f3;
+  --pants: #527ca7;
+  height: 340px;
+  animation-delay: -2s;
+}
+
+.character-shadow {
+  position: absolute;
+  left: 15%;
+  bottom: -2px;
+  width: 75%;
+  height: 13px;
+  border-radius: 50%;
+  background: #020c1780;
+  filter: blur(6px);
+}
+
+/* Backpack */
+.backpack {
+  position: absolute;
+  z-index: 1;
+  top: 105px;
+  left: 28px;
+  width: 120px;
+  height: 135px;
+  border-radius: 35px 35px 20px 20px;
+  background: linear-gradient(110deg, #263b50, #101e30);
+  box-shadow: inset 5px 0 #ffffff12;
+}
+
+.girl .backpack {
+  left: 35px;
+  background: linear-gradient(110deg, #d98d9f, #875c7c);
+}
+
+/* Head and face */
+.character-head {
+  position: absolute;
+  z-index: 5;
+  top: 17px;
+  left: 51px;
+  width: 76px;
+  height: 91px;
+  transform-origin: 50% 85%;
+  animation: headTilt 6s ease-in-out infinite;
+}
+
+.girl .character-head {
+  left: 49px;
+  top: 12px;
+}
+
+.face {
+  position: absolute;
+  inset: 12px 4px 0;
+  border-radius: 43% 43% 48% 48%;
+  background: linear-gradient(110deg, #e4a77d, var(--skin));
+  box-shadow: inset -5px -3px #75432b12;
+}
+
+.eye {
+  position: absolute;
+  top: 34px;
+  width: 9px;
+  height: 12px;
+  border-radius: 50%;
+  background: #19232f;
+  box-shadow: inset 2px 1px #ffffff;
+}
+
+.eye-left {
+  left: 16px;
+}
+
+.eye-right {
+  right: 16px;
+}
+
+.nose {
+  position: absolute;
+  top: 43px;
+  left: 31px;
+  width: 8px;
+  height: 10px;
+  border-radius: 50%;
+  border-right: 2px solid #9b5e45;
+}
+
+.smile {
+  position: absolute;
+  left: 25px;
+  top: 57px;
+  width: 20px;
+  height: 9px;
+  border-bottom: 2px solid #87453e;
+  border-radius: 0 0 50% 50%;
+}
+
+.ear {
+  position: absolute;
+  top: 43px;
+  width: 13px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--skin);
+}
+
+.ear-left {
+  left: -2px;
+}
+
+.ear-right {
+  right: -2px;
+}
+
+.hair-back {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: -3px;
+  width: 82px;
+  height: 52px;
+  border-radius: 50% 50% 28% 25%;
+  background: var(--hair);
+}
+
+.hair-top {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: -1px;
+  width: 76px;
+  height: 36px;
+  border-radius: 65% 48% 30% 20%;
+  background: linear-gradient(145deg, #3e3037, var(--hair) 70%);
+  transform: rotate(-4deg);
+}
+
+.girl .hair-back {
+  top: -5px;
+  left: -13px;
+  width: 100px;
+  height: 130px;
+  border-radius: 50% 50% 42% 40%;
+}
+
+.girl .hair-top {
+  width: 83px;
+  height: 38px;
+  left: -5px;
+  border-radius: 55% 55% 35% 30%;
+}
+
+/* Neck and torso */
+.neck {
+  position: absolute;
+  z-index: 2;
+  top: 96px;
+  left: 78px;
+  width: 22px;
+  height: 27px;
+  background: var(--skin);
+}
+
+.torso {
+  position: absolute;
+  z-index: 3;
+  top: 108px;
+  left: 36px;
+  width: 106px;
+  height: 137px;
+  border-radius: 28px 28px 16px 16px;
+  background: linear-gradient(100deg, var(--shirt), color-mix(in srgb, var(--shirt), #071725 35%));
+  box-shadow: inset 7px 0 #ffffff10, inset -5px 0 #0000000b;
+}
+
+.girl .torso {
+  top: 104px;
+  left: 35px;
+  width: 105px;
+  height: 128px;
+  border-radius: 28px 28px 15px 15px;
+}
+
+.hood {
+  position: absolute;
+  top: -7px;
+  left: 18px;
+  width: 70px;
+  height: 37px;
+  border-radius: 40% 40% 25% 25%;
+  background: #0d596b;
+}
+
+.girl .hood {
+  display: none;
+}
+
+.shirt {
+  position: absolute;
+  left: 27px;
+  top: 8px;
+  width: 51px;
+  height: 116px;
+  border-radius: 15px;
+  background: #ffffff0b;
+}
+
+.collar {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 37px;
+  width: 30px;
+  height: 25px;
+  background: #edf6fb;
+  clip-path: polygon(0 0, 50% 40%, 100% 0, 70% 100%, 50% 76%, 30% 100%);
+}
+
+.pocket {
+  position: absolute;
+  right: 13px;
+  top: 47px;
+  width: 19px;
+  height: 22px;
+  border: 1px solid #ffffff70;
+  border-radius: 3px;
+}
+
+.zipper {
+  position: absolute;
+  left: 52px;
+  top: 25px;
+  width: 2px;
+  height: 96px;
+  background: #ffffff20;
+}
+
+/* Arms stay naturally connected to the body */
+.arm {
+  position: absolute;
+  z-index: 2;
+  top: 118px;
+  width: 25px;
+  height: 102px;
+  border-radius: 18px;
+  background: linear-gradient(90deg, var(--skin), color-mix(in srgb, var(--skin), #ffffff 8%));
+  transform-origin: 50% 12px;
+}
+
+.arm-left {
+  left: 25px;
+  transform: rotate(12deg);
+}
+
+.arm-right {
+  right: 24px;
+  transform: rotate(-9deg);
+}
+
+.girl .arm-left {
+  left: 25px;
+  top: 113px;
+  transform: rotate(14deg);
+}
+
+.girl .arm-right {
+  right: 24px;
+  top: 113px;
+  transform: rotate(-12deg);
+}
+
+.hand {
+  position: absolute;
+  bottom: -7px;
+  left: -1px;
+  width: 27px;
+  height: 30px;
+  border-radius: 45% 45% 48% 48%;
+  background: var(--skin);
+}
+
+/* Books held against the body */
+.book-stack {
+  position: absolute;
+  z-index: 5;
+  top: 155px;
+  left: 20px;
+  width: 39px;
+  height: 75px;
+  transform: rotate(-8deg);
+}
+
+.book-stack span {
+  position: absolute;
+  inset: 0;
+  border: 3px solid #e8edf4;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #204f7d, #3576a9);
+  box-shadow: inset 4px 0 #ffffff28;
+}
+
+.book-stack span:nth-child(2) {
+  left: 9px;
+  top: 6px;
+  z-index: -1;
+  background: #c45d76;
+}
+
+.girl .book-stack {
+  left: 103px;
+  top: 145px;
+  transform: rotate(7deg);
+}
+
+/* Legs and shoes */
+.leg {
+  position: absolute;
+  z-index: 2;
+  top: 230px;
+  width: 40px;
+  height: 105px;
+  border-radius: 7px 7px 15px 15px;
+  background: linear-gradient(90deg, var(--pants), color-mix(in srgb, var(--pants), #ffffff 8%));
+  transform-origin: 50% 5px;
+}
+
+.leg-left {
+  left: 47px;
+}
+
+.leg-right {
+  right: 42px;
+}
+
+.girl .leg {
+  top: 216px;
+  height: 104px;
+}
+
+.girl .leg-left {
+  left: 45px;
+}
+
+.girl .leg-right {
+  right: 42px;
+}
+
+.shoe {
+  position: absolute;
+  bottom: -9px;
+  left: -7px;
+  width: 51px;
+  height: 20px;
+  border-radius: 13px 7px 5px 5px;
+  background: linear-gradient(#ffffff, #cdd9e8);
+  border-bottom: 3px solid #93a8be;
+  box-shadow: inset 0 -4px #d9e2ec;
+}
+
+.shoe::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 14px;
+  width: 17px;
+  height: 2px;
+  background: #4b7e9c;
+}
+
+.girl .shoe::after {
+  background: #d58b9c;
+}
+
+/* Gentle 3D-style movement, not waving */
+@keyframes characterFloat {
+  0%, 100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: 0 -5px;
+    rotate: .5deg;
+  }
+}
+
+@keyframes headTilt {
+  0%, 100% {
+    rotate: 0deg;
+  }
+  50% {
+    rotate: 1deg;
+  }
+}
+
+.floating-icon {
+  position: absolute;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  width: 51px;
+  height: 51px;
+  border: 1px solid #79dfd580;
+  border-radius: 50%;
+  background: #123a50d9;
+  color: #6be9d2;
+  font-size: 24px;
+}
+
+.cap {
+  top: 13%;
+  left: 7%;
+  animation: iconFloat 5s ease-in-out infinite;
+}
+
+.book {
+  left: 1%;
+  bottom: 23%;
+  animation: iconFloat 5s ease-in-out infinite -2s;
+}
+
+.calendar {
+  top: 10%;
+  right: 4%;
+  color: #c8caff;
+  border-color: #999bff80;
+}
+
+.people {
+  right: 0;
+  bottom: 32%;
+  letter-spacing: 2px;
+}
+
+@keyframes iconFloat {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -6px; }
+}
+
+.scene-caption {
+  position: absolute;
+  bottom: 0;
+  color: #a1bacb;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 4px;
+}
+
+.landing-footer {
+  min-height: 65px;
+  padding: 17px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid #ffffff12;
+  color: #9bb1c2;
+  font-size: 12px;
+}
+
+@keyframes cursorBlink {
+  to { opacity: 0; }
+}
+
+@media (max-width: 1000px) {
+  .landing-hero {
+    padding: 35px 5%;
+    gap: 12px;
+  }
+
+  .landing-copy h1 {
+    font-size: clamp(38px, 5vw, 56px);
+    letter-spacing: -1.8px;
+  }
+
+  .landing-scene {
+    height: 430px;
+  }
+
+  .students {
+    transform: scale(.87);
+  }
+}
+
+@media (max-width: 760px) {
+  .landing-nav {
+    min-height: 75px;
+    padding: 13px 5%;
+  }
+
+  .landing-brand {
+    font-size: 16px;
+    gap: 9px;
+  }
+
+  .landing-brand-mark {
+    width: 39px;
+    height: 39px;
+  }
+
+  .landing-login-btn {
+    padding: 11px 14px;
+  }
+
+  .landing-hero {
+    min-height: auto;
+    grid-template-columns: minmax(0, 1fr);
+    text-align: center;
+    padding: 42px 6% 30px;
+  }
+
+  .landing-copy h1 {
+    font-size: clamp(38px, 8vw, 58px);
+    letter-spacing: -1.5px;
+  }
+
+  .landing-copy p {
+    margin: 0 auto;
+    font-size: 15px;
+  }
+
+  .landing-scene {
+    max-width: 510px;
+    height: 390px;
+    margin: 0 auto;
+  }
+
+  .students {
+    transform: scale(.83);
+  }
+
+  .landing-footer {
+    padding: 16px 6%;
+  }
+}
+
+@media (max-width: 420px) {
+  .landing-copy h1 {
+    font-size: 36px;
+  }
+
+  .landing-scene {
+    height: 320px;
+  }
+
+  .students {
+    transform: scale(.68);
+  }
+
+  .floating-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  .scene-caption {
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .character,
+  .character-head,
+  .floating-icon,
+  .landing-cursor {
+    animation: none !important;
+  }
+}
